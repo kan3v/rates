@@ -51,6 +51,11 @@ public class ParseXMLRates
         }
     }
 
+    /**
+     *
+     * @param nl
+     * @param i
+     */
     private void parseNode(NodeList nl, int i)
     {
         Node node = nl.item(i);
@@ -70,6 +75,13 @@ public class ParseXMLRates
         }
     }
 
+    /**
+     *
+     * @param doc
+     * @return
+     * @throws XPathExpressionException
+     * @throws ParseException
+     */
     private NodeList getNodeList(Document doc) throws XPathExpressionException, ParseException
     {
         XPathFactory xPathfactory = XPathFactory.newInstance();
@@ -87,12 +99,21 @@ public class ParseXMLRates
         return nl;
     }
 
+    /**
+     *
+     * @return
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
+
     private Document getDocument() throws ParserConfigurationException, SAXException, IOException
     {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder db = dbf.newDocumentBuilder();
         return db.parse(new URL(url).openStream());
     }
+
 
     public List<Rate> getRates()
     {
